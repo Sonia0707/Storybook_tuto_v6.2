@@ -6,12 +6,15 @@ import App from './App';
 export default {
     component: App,
     title: 'App',
+    argTypes: {
+      backgroundColor: { control: 'color' },
+    },
   };
   
 const Template = args => <App {...args} />;
 
 export const AppComponent = Template.bind({});
 AppComponent.args = {
-  background: 'blue',
+  background: 'green',
   parrafo: 'Edit <code>src/App.js</code> and save to reload.',
 };
