@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
-
-import TaskList from './TaskList';
 import * as TaskStories from './Task.stories';
+//Refactor incorporsamor PureTaskList del JS => TaskList
+import { PureTaskList } from './TaskList';
 
 export default {
-  component: TaskList,
+  component: PureTaskList,
   title: 'TaskList',
   decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
 };
 
-const Template = args => <TaskList {...args} />;
+const Template = args => <PureTaskList {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -43,7 +44,7 @@ WithPinnedTasks.args = {
   ],
 };
 
-//Variable vacia de TaskStories, cargando el loading de TaskList => true.
+//Variable vacia de TaskStories, cargando el loading de PureList => true.
 export const Loading = Template.bind({});
 Loading.args = {
   tasks: [],
@@ -52,7 +53,7 @@ Loading.args = {
 
 export const Empty = Template.bind({});
 Empty.args = {
- // Datos heredados que provienen del componente TaskList.
+ // Datos heredados que provienen del componente PureList.
   ...Loading.args,
   loading: false,
 };
